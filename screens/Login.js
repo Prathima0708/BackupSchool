@@ -877,9 +877,23 @@ function Login() {
         } catch (error) {
           // Error retrieving data
         }
-
+        // if (PHONENO !== enteredPhone) {
+        //   Alert.alert("Invalid no");
+        // }
+        // if (filteredlist.length == 0) {
+        //   Alert.alert("Invalid Input", "Please enter a valid phone number");
+        //   navigation.navigate("Login");
+        // }
         if (resLogin.data.groups[0] === "parents") {
+          if (filteredlist.length == 0) {
+            Alert.alert("Invalid Input", "Please enter a valid phone number");
+            setEnteredUser("");
+            setEnteredPassword("");
+            setEnteredPhone("");
+            return;
+          }
           console.log(resLogin.data.groups[0]);
+          console.log(PHONENO);
           // <WelcomeScreen />;
 
           navigation.navigate("ParentsLoginScreen", {
